@@ -4,7 +4,6 @@ import numpy as np
 
 app = Flask(__name__)
 
-# Load model
 with open('heart_disease_model.json', 'r') as f:
     model = json.load(f)
 
@@ -25,10 +24,8 @@ def predict():
     data = request.json
     features = np.array(data['features']).reshape(1, -1)
     
-    # Normalize
     X_norm = (features - means) / stds
     
-    # Predict
     z = X_norm @ w + b
     probability = float(sigmoid(z)[0])
     

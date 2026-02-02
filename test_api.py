@@ -1,7 +1,6 @@
 import requests
 import json
 
-# Test patients
 patients = [
     {
         'name': 'Patient A (High Risk)',

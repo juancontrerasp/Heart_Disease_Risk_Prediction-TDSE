@@ -25,10 +25,8 @@ def predict_fn(input_data, model):
     w = np.array(model['weights'])
     b = model['bias']
     
-    # Normalize
     X_norm = (input_data - means) / stds
     
-    # Predict
     z = X_norm @ w + b
     probability = sigmoid(z)[0]
     
